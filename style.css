@@ -61,6 +61,9 @@
     padding: 20px #C6B8A9;
   }
   
+  .child-board {
+    background: #F8F5F2;
+  }
   .board1 {
     grid-row: 1 / span 1;
     grid-column: 1 / span 1;

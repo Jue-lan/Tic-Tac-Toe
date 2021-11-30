@@ -17,8 +17,8 @@ const winCombos = [
 const restartButton = document.querySelector(".restart")
 
 function restart() {
-    document.getElementById(".score-count").innerText = 0;
-    document.querySelectorAll(".child-board").style.backgroundColor = initial // not sure if this will work. intend to change to default color
+    //document.getElementById(".score-count").innerText = "0";
+    document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
     colorBrown();
     let player1 = true;
 }
@@ -54,8 +54,9 @@ function selection() {
         player1 = true
     }
 }
-boardButton.forEach((button) => button.addEventListner("click", console.log("hi"))
-boardButton.forEach((button) => button.addEventListener("click", selection)
+
+boardButton.forEach((button) => button.addEventListener("click", selection))
+
 /*need function that switches to player when selected ... and possibly displays it*/
 
 function colorBrown(){
