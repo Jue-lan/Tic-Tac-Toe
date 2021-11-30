@@ -54,7 +54,7 @@ function selection() {
         player1 = true
     }
 }
-
+// boardButton.addEventListner("click", console.log("hi"))
 boardButton.addEventListner("click", selection)
 /*need function that switches to player when selected ... and possibly displays it*/
 
