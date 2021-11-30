@@ -133,18 +133,15 @@
     background: #443422;
   }
 
-  /*
+
   .switch {
-    grid-row: 1 / span 1;
-    grid-column: 1 / span 1;
-    border: 10px solid #C6B8A9;
-    padding: 20px;
-    font-size: 50px;
+    border: 2px solid #C6B8A9;
+    font-size: 25px;
     font-family: "Garamond", serif;
     font-weight: bold;
     background: #794814;
   }
-*/
+
 
   .restart {
     grid-row: 1 / span 1;
