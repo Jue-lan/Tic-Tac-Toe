@@ -23,7 +23,7 @@ function restart() {
     let player1 = true;
 }
 
-restartButton.addEventListner("click", restart)
+restartButton.addEventListener("click", restart)
 
 /* need to create a function/loop to check for wins after every move and ends game at tie or win*/
 // psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins, clear board, and add count
@@ -47,19 +47,19 @@ const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
     if (player1= true){
-        boardButton.forEach((button) => button.addEventListner("click", colorBrown))
+        boardButton.forEach((button) => button.addEventListener("click", colorBrown))
         player1 = false
     } else {
-        boardButton.forEach((button) => button.addEventListner("click", colorOrange))
+        boardButton.forEach((button) => button.addEventListener("click", colorOrange))
         player1 = true
     }
 }
-// boardButton.addEventListner("click", console.log("hi"))
-boardButton.addEventListner("click", selection)
+boardButton.forEach((button) => button.addEventListner("click", console.log("hi"))
+boardButton.forEach((button) => button.addEventListener("click", selection)
 /*need function that switches to player when selected ... and possibly displays it*/
 
-function colorBrown(button){
-    button.target.style.backgroundColor= "brown"
+function colorBrown(){
+    event.target.style.backgroundColor= "brown"
 /*  
         document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
         document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
@@ -67,12 +67,12 @@ function colorBrown(button){
 }
 
 function colorOrange(){
-    button.target.style.backgroundColor= "orange"
+    event.target.style.backgroundColor= "orange"
 /*    
     document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
     document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
 */
 }
 
-player1Button.addEventListner("click", colorBrown) ;
-player2Button.addEventListner("click", colorOrange)
+player1Button.addEventListener("click", colorBrown) ;
+player2Button.addEventListener("click", colorOrange)
