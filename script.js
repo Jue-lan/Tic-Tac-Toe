@@ -1,3 +1,6 @@
+// warning only like 30% of this works...just trying to get ideas out of head
+
+
 /* need array of win combos */
 
 const winCombos = [
@@ -15,18 +18,23 @@ const restartButton = document.querySelector(".restart")
 
 function restart() {
     document.getElementById(".score-count").innerText = 0;
-    document.querySelectorAll(".child-board").style.background = initia;l // not sure if this will work. intend to change to default color
+    document.querySelectorAll(".child-board").style.background = initial // not sure if this will work. intend to change to default color
     colorBrown()
 }
 
 restartButton.addEeventListner("click", restart)
 
 /* need to create a function/loop to check for wins after every move and ends game at tie or win*/
-// psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins. and restart board
-//or if all buttons ar enot default color, alert colors tie. and restart board
+// psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins, clear board, and add count
+//or if all buttons ar enot default color, alert colors tie. and clear board
 // if neither nothing
+
+function clearBoard() {
+    document.querySelectorAll(".child-board").style.background = initial // not sure if this will work. intend to change to default color
+    colorBrown()
+}
+
 function gameEnd(){
-    if 
 }
 
 /* need function that changes button color based on player being played */
