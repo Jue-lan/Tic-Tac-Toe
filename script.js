@@ -19,7 +19,7 @@ const restartButton = document.querySelector(".restart")
 function restart() {
     document.getElementById(".score-count").innerText = 0;
     document.querySelectorAll(".child-board").style.backgroundColor = initial // not sure if this will work. intend to change to default color
-    colorBrown()
+    colorBrown();
     let player1 = true;
 }
 
@@ -46,25 +46,32 @@ const player2Button = document.querySelector(".swtich-Player2")
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-    if (document.querySelector(".swtich-Player1").style.backgroundColor === "brown"){
-        boardButton.addEventListner("click", colorBrown)
+    if (player1= true){
+        boardButton.forEach((button) => button.addEventListner("click", colorBrown))
+        player1 = false
     } else {
-        boardButton.addEventListner("click", colorOrange)
+        boardButton.forEach((button) => button.addEventListner("click", colorOrange))
+        player1 = true
     }
 }
 
 boardButton.addEventListner("click", selection)
 /*need function that switches to player when selected ... and possibly displays it*/
 
-function colorBrown(){
+function colorBrown(button){
+    button.target.style.backgroundColor= "brown"
+/*  
         document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
         document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
-
+*/
 }
 
 function colorOrange(){
+    button.target.style.backgroundColor= "orange"
+/*    
     document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
     document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
+*/
 }
 
 player1Button.addEventListner("click", colorBrown) ;
