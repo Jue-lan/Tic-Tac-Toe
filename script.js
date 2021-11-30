@@ -15,7 +15,7 @@ const restartButton = document.querySelector(".restart")
 
 function restart() {
     document.getElementById(".score-count").innerText = 0;
-    document.querySelectorAll(".child-board").style.background = `${#C6B8A9}`
+    document.querySelectorAll(".child-board").style.background = initial // not sure if this will work. intend to change to default color
 }
 
 restartButton.addEeventListner("click", restart)
@@ -23,6 +23,30 @@ restartButton.addEeventListner("click", restart)
 /* need to create a function/loop to check for wins after every move and ends game at tie or win*/
 
 /* need function that changes button color based on player being played */
+const player1Button = document.querySelector(".swtich-Player1")
+const player2Button = document.querySelector(".swtich-Player2")
 
+const boardButton = document.querySelectorAll(".child-board")
 
+function selection() {
+    if (document.querySelector(".swtich-Player1").style.background === "brown"){
+        boardButton.addEeventListner("click", colorBrown)
+    } else {
+        boardButton.addEeventListner("click", colorOrange)
+    }
+}
 /*need function that switches to player when selected ... and possibly displays it*/
+
+function colorBrown(){
+        document.querySelector(".swtich-Player1").style.background = "brown"
+        document.querySelector(".swtich-Player2").style.background = "initial"
+
+}
+
+function colorOrange(){
+    document.querySelector(".swtich-Player1").style.background = "initial"
+    document.querySelector(".swtich-Player2").style.background = "orange"
+}
+
+player1Button.addEeventListner("click", colorBrown)
+player2Button.addEeventListner("click", colorOrange)
