@@ -64,16 +64,20 @@ function gameEnd(){
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-
-        if (player1){// *Here* I can't get color to swap back. It swaps once and sticks even into a reset game.
+console.log("before if")
+        if (player1){// *Here* I can't get color to swap back. It swaps once and sticks to orange. using console.log 
+            //I can read that the true false staments alternate, but the color selected doesn't match the command
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
             player1 = false;
+            console.log(" if true")
         } else {
             boardButton.forEach((button) => button.addEventListener("click", colorOrange));
             player1 = true;
+            console.log(" if false")
         } 
    event.preventDefault()
    gameEnd()
+   console.log(" after game function")
 }
 
 boardButton.forEach((button) => button.addEventListener("click", selection))
