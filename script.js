@@ -19,7 +19,6 @@ const winCombos = [
 const restartButton = document.querySelector(".restart")
 
 function restart() {
-
     document.querySelectorAll(".child-board").forEach((button) => button.style.backgroundColor = "initial");
     brownArray=[];
     orangeArray=[];
@@ -28,8 +27,6 @@ function restart() {
 }
 
 restartButton.addEventListener("click", restart)
-
-
 /* player tallied picks and end game function*/
 
 let tallyBrown= 0
@@ -39,8 +36,6 @@ let tallyOrange= 0
 function gameEnd(){
     event.preventDefault()
     for (let i = 0; i < winCombos.length; i++){
-
-
         for (let k = 0; k < 3 ; k++){
             if (brownArray.includes(winCombos[i][k])){
                 tallyBrown++
@@ -52,46 +47,39 @@ function gameEnd(){
             } //else {tallyOrange= 0}
         }
         console.log(tallyBrown)
+        console.log(brownArray)
+        console.log(orangeArray)
         console.log(tallyOrange)
-        if (tallyBrown === 3){ 
+        if (tallyBrown >= 3){ 
             console.log("Player 1 wins!! New game.")
             //restart()
-        } else if (tallyOrange === 3){
+        } else if (tallyOrange >= 3){
             console.log("Player 2 wins!! New game.")
             //restart()
         } 
     }
 }
-
-
 /* board buttons and player selections and color fuctions*/
 
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
 console.log("before if")
-        if (player1){// *Here* I can't get color to swap back. It swaps once and sticks to orange. using console.log 
-            //I can read that the true false staments alternate, but the color selected doesn't match the command
-            
+        if (player1){      
             function colorBrown(){
-                // if (event.target.style.backgroundColor=="initial" ){
                      event.target.style.backgroundColor= "brown"
                      let number= event.target.id
-                     brownArray.push(number)
-                // }
-             }
+                     brownArray.push(number) //why is it push all the numbers
+            }
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
             player1 = false;
             console.log(" if true")
         } else {
-
             function colorOrange(){
-                //   if (event.target.style.backgroundColor=="initial"){
                        event.target.style.backgroundColor= "orange"
                        let number= event.target.id
                        orangeArray.push(number)
-                       //}
-               }
+            }
             boardButton.forEach((button) => button.addEventListener("click", colorOrange));
             player1 = true;
             console.log(" if false")
@@ -102,4 +90,3 @@ console.log("before if")
 }
 
 boardButton.forEach((button) => button.addEventListener("click", selection))
-
