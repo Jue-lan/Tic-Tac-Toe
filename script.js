@@ -22,6 +22,7 @@ function restart() {
     document.querySelectorAll(".child-board").forEach((button) => button.style.backgroundColor = "initial");
     brownArray=[];
     orangeArray=[]
+    event.preventDefault()
 }
 
 restartButton.addEventListener("click", restart)
@@ -36,24 +37,37 @@ function clearBoard() {
     
 }
 */
-
+let tallyBrown= 0
+let tallyOrange= 0
 
 function gameEnd(){
+    event.preventDefault()
     for (let i = 0; i < winCombos.length; i++){
-        if (brownArray.includes(winCombos[i])){ // need to say includes the three individually and not a trio
-            alert("Player 1 wins!! New game.")
-            restart()
-        } else if (orangeArray.includes(winCombos[i])){
-            alert("Player 2 wins!! New game.")
-            restart()
+
+
+        for (let k = 0; k < 3 ; k++){
+            if (brownArray.includes(winCombos[i][k])){
+                tallyBrown++
+            } //else {tallyBrown= 0}
+            if (orangeArray.includes(winCombos[i][k])){
+                tallyOrange++
+            } //else {tallyOrange= 0}
         }
+
+        if (tallyBrown === 3){ 
+            console.log("Player 1 wins!! New game.")
+            restart()
+        } else if (tallyOrange === 3){
+            console.log("Player 2 wins!! New game.")
+            restart()
+        } 
     }
 }
 
 
 /* need function that changes button color based on player being played */
-const player1Button = document.querySelector(".swtich-Player1")
-const player2Button = document.querySelector(".swtich-Player2")
+//const player1Button = document.querySelector(".swtich-Player1")
+//const player2Button = document.querySelector(".swtich-Player2")
 
 const boardButton = document.querySelectorAll(".child-board")
 
@@ -68,14 +82,18 @@ function selection() {
         */
         if (player1){
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
-            // player1 = false;
-            gameEnd()
-        }else {
+            //player1 = false;
+            player1 = player1 === true ? false : true
+        }else  {
             boardButton.forEach((button) => button.addEventListener("click", colorOrange));
-            // player1 = true;
-            gameEnd()
+            player1 = true;
+           // player1 = player1 === false ? true : false
         } 
    // }
+   //player1 = player1 === true ? false : true
+
+   event.preventDefault()
+   gameEnd()
 }
 
 boardButton.forEach((button) => button.addEventListener("click", selection))
@@ -83,12 +101,12 @@ boardButton.forEach((button) => button.addEventListener("click", selection))
 /*need function that switches to player when selected ... and possibly displays it*/
 
 function colorBrown(){
-    if (event.target.style.backgroundColor=="initial" ){
+   // if (event.target.style.backgroundColor=="initial" ){
         event.target.style.backgroundColor= "brown"
         let number= event.target.id
         brownArray.push(number)
-        //player1 = false;
-    }
+        // player1 = false;
+   // }
 
 /*  
         document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
@@ -97,17 +115,17 @@ function colorBrown(){
 }
 
 function colorOrange(){
-    if (event.target.style.backgroundColor=="initial"){
+ //   if (event.target.style.backgroundColor=="initial"){
         event.target.style.backgroundColor= "orange"
         let number= event.target.id
         orangeArray.push(number)
         //player1 = true;
-    }
+   // }
 /*    
     document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
     document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
 */
 }
 
-player1Button.addEventListener("click", colorBrown) ;
-player2Button.addEventListener("click", colorOrange);
+// player1Button.addEventListener("click", colorBrown) ;
+// player2Button.addEventListener("click", colorOrange);
