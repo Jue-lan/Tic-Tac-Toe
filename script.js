@@ -18,8 +18,7 @@ const restartButton = document.querySelector(".restart")
 
 function restart() {
     //document.getElementById(".score-count").innerText = "0";
-    document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
-    colorBrown();
+    document.querySelectorAll(".child-board").forEach((button) => button.style.backgroundColor = "initial") // not sure if this will work. intend to change to default color
 }
 
 restartButton.addEventListener("click", restart)
@@ -45,21 +44,22 @@ const player2Button = document.querySelector(".swtich-Player2")
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-    if (boardButton.forEach( 
+/*    if (boardButton.forEach( 
         () =>  {
             if (event.target.style.backgroundColor != "brown" && event.target.style.backgroundColor != "orange"){
                  return true
             }
         }
     )){
+        */
         if (player1){
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
             player1 = false;
-        } else {
-            boardButton.forEach((button) => button.addEventListener("click", colorOrange))
-            player1 = true
-        }
-    }
+        }else {
+            boardButton.forEach((button) => button.addEventListener("click", colorOrange));
+            player1 = true;
+        } 
+   // }
 }
 
 boardButton.forEach((button) => button.addEventListener("click", selection))
