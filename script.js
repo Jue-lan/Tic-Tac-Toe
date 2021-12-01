@@ -1,5 +1,5 @@
 // warning only like 30% of this works...just trying to get ideas out of head
-
+let player1 = true
 
 /* need array of win combos */
 
@@ -20,7 +20,6 @@ function restart() {
     //document.getElementById(".score-count").innerText = "0";
     document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
     colorBrown();
-    let player1 = true;
 }
 
 restartButton.addEventListener("click", restart)
@@ -31,9 +30,9 @@ restartButton.addEventListener("click", restart)
 // if neither nothing
 
 function clearBoard() {
-    document.querySelectorAll(".child-board").style.backgroundColor = initial // not sure if this will work. intend to change to default color
+    document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
     colorBrown()
-    let player1 = true
+    
 }
 
 function gameEnd(){
@@ -46,12 +45,20 @@ const player2Button = document.querySelector(".swtich-Player2")
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-    if (player1= true){
-        boardButton.forEach((button) => button.addEventListener("click", colorBrown))
-        player1 = false
-    } else {
-        boardButton.forEach((button) => button.addEventListener("click", colorOrange))
-        player1 = true
+    if (boardButton.forEach( 
+        () =>  {
+            if (event.target.style.backgroundColor != "brown" && event.target.style.backgroundColor != "orange"){
+                 return true
+            }
+        }
+    )){
+        if (player1){
+            boardButton.forEach((button) => button.addEventListener("click", colorBrown));
+            player1 = false;
+        } else {
+            boardButton.forEach((button) => button.addEventListener("click", colorOrange))
+            player1 = true
+        }
     }
 }
 
