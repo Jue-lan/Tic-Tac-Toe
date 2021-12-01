@@ -37,12 +37,19 @@ function clearBoard() {
 }
 */
 
-/*
+
 function gameEnd(){
     for (let i = 0; i < winCombos.length; i++){
-        if 
+        if (brownArray.includes(winCombos[i])){ // need to say includes the three individually and not a trio
+            alert("Player 1 wins!! New game.")
+            restart()
+        } else if (orangeArray.includes(winCombos[i])){
+            alert("Player 2 wins!! New game.")
+            restart()
+        }
+    }
 }
-*/
+
 
 /* need function that changes button color based on player being played */
 const player1Button = document.querySelector(".swtich-Player1")
@@ -61,10 +68,12 @@ function selection() {
         */
         if (player1){
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
-            player1 = false;
+            // player1 = false;
+            gameEnd()
         }else {
             boardButton.forEach((button) => button.addEventListener("click", colorOrange));
-            player1 = true;
+            // player1 = true;
+            gameEnd()
         } 
    // }
 }
@@ -74,9 +83,13 @@ boardButton.forEach((button) => button.addEventListener("click", selection))
 /*need function that switches to player when selected ... and possibly displays it*/
 
 function colorBrown(){
-    event.target.style.backgroundColor= "brown"
-    let number= event.target.id
-    brownArray.push(number)
+    if (event.target.style.backgroundColor=="initial" ){
+        event.target.style.backgroundColor= "brown"
+        let number= event.target.id
+        brownArray.push(number)
+        //player1 = false;
+    }
+
 /*  
         document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
         document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
@@ -84,9 +97,12 @@ function colorBrown(){
 }
 
 function colorOrange(){
-    event.target.style.backgroundColor= "orange"
-    let number= event.target.id
-    orangeArray.push(number)
+    if (event.target.style.backgroundColor=="initial"){
+        event.target.style.backgroundColor= "orange"
+        let number= event.target.id
+        orangeArray.push(number)
+        //player1 = true;
+    }
 /*    
     document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
     document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
@@ -94,4 +110,4 @@ function colorOrange(){
 }
 
 player1Button.addEventListener("click", colorBrown) ;
-player2Button.addEventListener("click", colorOrange)
+player2Button.addEventListener("click", colorOrange);
