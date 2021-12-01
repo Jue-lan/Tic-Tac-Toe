@@ -96,5 +96,5 @@ function colorOrange(){
         event.target.style.backgroundColor= "orange"
         let number= event.target.id
         orangeArray.push(number)
-        //player1 = true;
-   // }
+        //player1 = true;}
+}
