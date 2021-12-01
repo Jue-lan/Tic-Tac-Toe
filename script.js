@@ -1,7 +1,8 @@
-// warning only like 30% of this works...just trying to get ideas out of head
+
 let player1 = true
 let brownArray=[]
 let orangeArray=[]
+
 /* need array of win combos */
 
 const winCombos = [
@@ -18,29 +19,20 @@ const winCombos = [
 const restartButton = document.querySelector(".restart")
 
 function restart() {
-//ignore                               //document.getElementById(".score-count").innerText = "0";
+
     document.querySelectorAll(".child-board").forEach((button) => button.style.backgroundColor = "initial");
     brownArray=[];
-    orangeArray=[]
+    orangeArray=[];
+    location.reload()
     event.preventDefault()
 }
 
 restartButton.addEventListener("click", restart)
 
-/*Ignore*/                                       /* need to create a function/loop to check for wins after every move and ends game at tie or win*/
-                                        // psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins, clear board, and add count
-                                        //or if all buttons ar enot default color, alert colors tie. and clear board
-                                        // if neither nothing
-                                        /*
-                                        function clearBoard() {
-                                            document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
-                                            
-                                        }
-                                        */
 let tallyBrown= 0
 let tallyOrange= 0
 
-// Her
+// *Here* I am someone looping Player 1 to win on the onset, even when the colors are prodominately orange
 function gameEnd(){
     event.preventDefault()
     for (let i = 0; i < winCombos.length; i++){
@@ -67,32 +59,19 @@ function gameEnd(){
 
 
 /* need function that changes button color based on player being played */
-//ignore                                            //const player1Button = document.querySelector(".swtich-Player1")
-                                                    //const player2Button = document.querySelector(".swtich-Player2")
+
 
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-/*Ignore*/                                                  /*    if (boardButton.forEach( 
-                                                            () =>  {
-                                                                if (event.target.style.backgroundColor != "brown" && event.target.style.backgroundColor != "orange"){
-                                                                    return true
-                                                                }
-                                                            }
-                                                        )){
-                                                            */
-        if (player1){
+
+        if (player1){// *Here* I can't get color to swap back. It swaps once and sticks even into a reset game.
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
-            //player1 = false;
-            player1 = player1 === true ? false : true
-        }else  {
+            player1 = false;
+        } else {
             boardButton.forEach((button) => button.addEventListener("click", colorOrange));
             player1 = true;
-           // player1 = player1 === false ? true : false
         } 
-   // }
-   //player1 = player1 === true ? false : true
-
    event.preventDefault()
    gameEnd()
 }
@@ -109,10 +88,7 @@ function colorBrown(){
         // player1 = false;
    // }
 
-/*Ignore*/                                    /*  
-                                            document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
-                                            document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
-                                            */
+
 }
 
 function colorOrange(){
@@ -122,11 +98,3 @@ function colorOrange(){
         orangeArray.push(number)
         //player1 = true;
    // }
-/*Ignore*/                                                /*    
-                                                        document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
-                                                        document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
-                                                    */
-}
-
-//Ignore                                                    // player1Button.addEventListener("click", colorBrown) ;
-                                                    // player2Button.addEventListener("click", colorOrange);
