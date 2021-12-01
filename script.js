@@ -18,7 +18,7 @@ const winCombos = [
 const restartButton = document.querySelector(".restart")
 
 function restart() {
-    //document.getElementById(".score-count").innerText = "0";
+//ignore                               //document.getElementById(".score-count").innerText = "0";
     document.querySelectorAll(".child-board").forEach((button) => button.style.backgroundColor = "initial");
     brownArray=[];
     orangeArray=[]
@@ -27,19 +27,20 @@ function restart() {
 
 restartButton.addEventListener("click", restart)
 
-/* need to create a function/loop to check for wins after every move and ends game at tie or win*/
-// psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins, clear board, and add count
-//or if all buttons ar enot default color, alert colors tie. and clear board
-// if neither nothing
-/*
-function clearBoard() {
-    document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
-    
-}
-*/
+/*Ignore*/                                       /* need to create a function/loop to check for wins after every move and ends game at tie or win*/
+                                        // psuedo code: if serious of button that match in color match any of the wining combos, alert  that, that color wins, clear board, and add count
+                                        //or if all buttons ar enot default color, alert colors tie. and clear board
+                                        // if neither nothing
+                                        /*
+                                        function clearBoard() {
+                                            document.querySelectorAll(".child-board").style.backgroundColor = "initial" // not sure if this will work. intend to change to default color
+                                            
+                                        }
+                                        */
 let tallyBrown= 0
 let tallyOrange= 0
 
+// Her
 function gameEnd(){
     event.preventDefault()
     for (let i = 0; i < winCombos.length; i++){
@@ -66,20 +67,20 @@ function gameEnd(){
 
 
 /* need function that changes button color based on player being played */
-//const player1Button = document.querySelector(".swtich-Player1")
-//const player2Button = document.querySelector(".swtich-Player2")
+//ignore                                            //const player1Button = document.querySelector(".swtich-Player1")
+                                                    //const player2Button = document.querySelector(".swtich-Player2")
 
 const boardButton = document.querySelectorAll(".child-board")
 
 function selection() {
-/*    if (boardButton.forEach( 
-        () =>  {
-            if (event.target.style.backgroundColor != "brown" && event.target.style.backgroundColor != "orange"){
-                 return true
-            }
-        }
-    )){
-        */
+/*Ignore*/                                                  /*    if (boardButton.forEach( 
+                                                            () =>  {
+                                                                if (event.target.style.backgroundColor != "brown" && event.target.style.backgroundColor != "orange"){
+                                                                    return true
+                                                                }
+                                                            }
+                                                        )){
+                                                            */
         if (player1){
             boardButton.forEach((button) => button.addEventListener("click", colorBrown));
             //player1 = false;
@@ -108,10 +109,10 @@ function colorBrown(){
         // player1 = false;
    // }
 
-/*  
-        document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
-        document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
-*/
+/*Ignore*/                                    /*  
+                                            document.querySelector(".swtich-Player1").style.backgroundColor = "brown"
+                                            document.querySelector(".swtich-Player2").style.backgroundColor = "initial"
+                                            */
 }
 
 function colorOrange(){
@@ -121,11 +122,11 @@ function colorOrange(){
         orangeArray.push(number)
         //player1 = true;
    // }
-/*    
-    document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
-    document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
-*/
+/*Ignore*/                                                /*    
+                                                        document.querySelector(".swtich-Player1").style.backgroundColor = "initial"
+                                                        document.querySelector(".swtich-Player2").style.backgroundColor = "orange"
+                                                    */
 }
 
-// player1Button.addEventListener("click", colorBrown) ;
-// player2Button.addEventListener("click", colorOrange);
+//Ignore                                                    // player1Button.addEventListener("click", colorBrown) ;
+                                                    // player2Button.addEventListener("click", colorOrange);
